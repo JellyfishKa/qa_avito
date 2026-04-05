@@ -17,7 +17,9 @@ class TestCreateItem:
         r2 = client.create_item(payload)
         assert r1.status_code == 200
         assert r2.status_code == 200
-        assert extract_id(r1) != extract_id(r2), "два объявления с одинаковыми данными должны получать разные id"
+        assert extract_id(r1) != extract_id(
+            r2
+        ), "два объявления с одинаковыми данными должны получать разные id"
 
     def test_create_with_zero_price(self, client):
         # нулевая цена — краевой случай, не очевидно как должен вести себя сервис

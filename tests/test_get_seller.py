@@ -51,6 +51,7 @@ class TestGetSellerItems:
     # TC-025 — баг
     def test_get_items_negative_seller_id(self, client):
         response = client.get_seller_items(-1)
-        assert response.status_code in (400, 404), (
-            f"ожидали 400/404 для sellerId=-1, получили {response.status_code}"
-        )
+        assert response.status_code in (
+            400,
+            404,
+        ), f"ожидали 400/404 для sellerId=-1, получили {response.status_code}"

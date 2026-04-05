@@ -7,7 +7,9 @@ class AvitoApiClient:
     def __init__(self, base_url=BASE_URL):
         self.base_url = base_url
         self.session = requests.Session()
-        self.session.headers.update({"Content-Type": "application/json", "Accept": "application/json"})
+        self.session.headers.update(
+            {"Content-Type": "application/json", "Accept": "application/json"}
+        )
 
     def create_item(self, payload):
         return self.session.post(f"{self.base_url}/api/1/item", json=payload)

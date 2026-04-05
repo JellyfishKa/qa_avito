@@ -37,9 +37,9 @@ class TestStatistic:
         payload["statistics"] = {"likes": 0, "viewCount": 0, "contacts": 0}
 
         create_resp = client.create_item(payload)
-        assert create_resp.status_code == 200, (
-            f"ожидали 200 при создании с нулевой статистикой, получили {create_resp.status_code}"
-        )
+        assert (
+            create_resp.status_code == 200
+        ), f"ожидали 200 при нулевой статистике, получили {create_resp.status_code}"
 
         stat_resp = client.get_statistic(extract_id(create_resp))
         assert stat_resp.status_code == 200

@@ -12,7 +12,9 @@ def client():
 def created_item(client):
     payload = valid_item()
     response = client.create_item(payload)
-    assert response.status_code == 200, f"Не удалось создать объявление: {response.text}"
+    assert (
+        response.status_code == 200
+    ), f"Не удалось создать объявление: {response.text}"
     item_id = extract_id(response)
     return {"id": item_id, "payload": payload}
 
